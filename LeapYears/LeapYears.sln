@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeapYears.Core", "LeapYears.Core\LeapYears.Core.csproj", "{4A8D7A06-AB20-4062-98A9-771EFE73D95D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeapYears.UnitTests", "LeapYears.UnitTests\LeapYears.UnitTests.csproj", "{55F7FD6C-88F7-486F-B977-1E424A8D9075}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{539283A6-EA4B-4E4B-8593-4500999EF79F}"
+ProjectSection(SolutionItems) = preProject
+	README.md = README.md
+EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A8D7A06-AB20-4062-98A9-771EFE73D95D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A8D7A06-AB20-4062-98A9-771EFE73D95D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A8D7A06-AB20-4062-98A9-771EFE73D95D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A8D7A06-AB20-4062-98A9-771EFE73D95D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55F7FD6C-88F7-486F-B977-1E424A8D9075}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55F7FD6C-88F7-486F-B977-1E424A8D9075}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55F7FD6C-88F7-486F-B977-1E424A8D9075}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55F7FD6C-88F7-486F-B977-1E424A8D9075}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
