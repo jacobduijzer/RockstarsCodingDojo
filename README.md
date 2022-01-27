@@ -8,11 +8,13 @@ C# katas for a Coding Dojo
 * Doing it right (at least for once)
 * Collaboration
 
-## Red-Green-Refactor
+## Red-Green-Refactor [^2]
 
 * Red — think about what you want to develop
 * Green — think about how to make your tests pass
 * Refactor — think about how to improve your existing implementation
+
+[^2]: [The Cycles of TDD](https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html)
 
 ## The Three Rules of TDD [^3]
 
