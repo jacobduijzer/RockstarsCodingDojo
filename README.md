@@ -13,3 +13,9 @@ C# katas for a Coding Dojo
 * Red — think about what you want to develop
 * Green — think about how to make your tests pass
 * Refactor — think about how to improve your existing implementation
+
+## The Three Rules of TDD
+
+* Write production code only to pass a failing unit test.
+* Write no more of a unit test than sufficient to fail (compilation failures are failures).
+* Write no more production code than necessary to pass the one failing unit test.
