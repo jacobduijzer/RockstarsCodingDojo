@@ -1,12 +1,14 @@
 # Rockstars Coding Dojo
 C# katas for a Coding Dojo
 
-## Coding Dojo mindset
+## Coding Dojo Mindset [^1]
 
 * We are here to learn
 * Slow down, no deadlines
 * Doing it right (at least for once)
 * Collaboration
+
+[^1]: [Coding Dojo Principles](https://codingdojo.org/CodingDojoPrinciples/)
 
 ## Red-Green-Refactor [^2]
 
