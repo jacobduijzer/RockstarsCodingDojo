@@ -34,3 +34,10 @@ C# katas for a Coding Dojo
 * Fewest elements
 
 [^4]: [Kent Beck's rules explained by Martin Fowler](https://martinfowler.com/bliki/BeckDesignRules.html)
+
+## Sources
+
+* [The Coding Dojo Handbook by Emily Bache](https://leanpub.com/codingdojohandbook)
+* [CodingDojo.org](https://codingdojo.org)
+* [CodingDojo,org Kata's](https://codingdojo.org/kata/)
+* [Kata-Log](https://kata-log.rocks)
