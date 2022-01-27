@@ -27,4 +27,4 @@ C# katas for a Coding Dojo
 * No duplication
 * Fewest elements
 
-[^1]: https://martinfowler.com/bliki/BeckDesignRules.html
+[^1]: [Kent Beck's rules explained by Martin Fowler](https://martinfowler.com/bliki/BeckDesignRules.html)
