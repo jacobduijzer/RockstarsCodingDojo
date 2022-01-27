@@ -41,3 +41,4 @@ C# katas for a Coding Dojo
 * [CodingDojo.org](https://codingdojo.org)
 * [CodingDojo,org Kata's](https://codingdojo.org/kata/)
 * [Kata-Log](https://kata-log.rocks)
+* [Code Retreat podcast](https://coderetreat-facilitation.code-cop.org)
