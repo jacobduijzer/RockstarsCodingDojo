@@ -58,14 +58,16 @@ namespace FizzBuzz.UnitTests
             Assert.Equal("FizzBuzz", result);
         }
         
-        [Fact]
-        public void ServiceThrowsArgumentOutOfRangeException()
+        [Theory]
+        [InlineData(0)]
+        [InlineData(101)]
+        public void ServiceThrowsArgumentOutOfRangeException(int number)
         {
             // ARRANGE
             var service = new FizzBuzzService();
 
             // ACT & ASSERT
-            Assert.Throws<ArgumentOutOfRangeException>(() => service.GetFizzBuzzForNumber(101));
+            Assert.Throws<ArgumentOutOfRangeException>(() => service.GetFizzBuzzForNumber(number));
         }
     }
 }

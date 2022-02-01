@@ -7,6 +7,10 @@ namespace FizzBuzz.Core
     {
         public string GetFizzBuzzForNumber(int number)
         {
+            if(number > 100)
+            {
+                throw new ArgumentOutOfRangeException(nameof(number));
+            }
             if (CanDivideByThree(number) && CanDivideByFive(number)) return "FizzBuzz";
             if (CanDivideByThree(number)) return "Fizz";
             if (CanDivideByFive(number)) return "Buzz";
