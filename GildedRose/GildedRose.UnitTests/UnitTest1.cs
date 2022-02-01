@@ -7,17 +7,33 @@ namespace GildedRose.UnitTests
     public class UnitTest1
     {
         [Fact]
-        public void Foo()
+        public void UpdateQuality_NormalItem()
         {
             // ARRANGE
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
-            ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(Items);
+            IList<Item> items = new List<Item> { new Item { Name = "foo", SellIn = 1, Quality = 1 } };
+            ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(items);
 
             // ACT
             app.UpdateQuality();
 
             // ASSERT
-            Assert.Equal("fixme", Items[0].Name);
+            Assert.Equal(0, items[0].SellIn);
+            Assert.Equal(0, items[0].Quality);
+        }
+
+        [Fact]
+        public void UpdateQuality_AfterSellIn()
+        {
+            // ARRANGE
+            IList<Item> items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 10 } };
+            ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(items);
+
+            // ACT
+            app.UpdateQuality();
+
+            // ASSERT
+            Assert.Equal(-1, items[0].SellIn);
+            Assert.Equal(8, items[0].Quality);
         }
     }
 }
