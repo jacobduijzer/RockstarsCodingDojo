@@ -20,7 +20,7 @@ namespace FizzBuzz.UnitTests
         }
 
         [Fact]
-        public void ShouldHaveExpectedNumberOfElements()
+        public void HaveExpectedNumberOfElements()
         {
             var sut = new FizzBuzzService();
 
@@ -31,7 +31,7 @@ namespace FizzBuzz.UnitTests
 
         [Theory]
         [InlineData(3)]
-        public void ShouldPrintFizzWhenDivisibleBy3(int outputIndex)
+        public void PrintFizzWhenDivisibleBy3(int outputIndex)
         {
             var sut = new FizzBuzzService();
 
@@ -42,7 +42,7 @@ namespace FizzBuzz.UnitTests
         
         [Theory]
         [InlineData(2)]
-        public void ShouldPrintNumberWhenNotDivisibleBy3(int outputIndex)
+        public void PrintNumberWhenNotDivisibleBy3(int outputIndex)
         {
             var sut = new FizzBuzzService();
 
@@ -53,7 +53,7 @@ namespace FizzBuzz.UnitTests
         
         [Theory]
         [InlineData(5)]
-        public void ShouldPrintBuzzWhenDivisibleBy5(int outputIndex)
+        public void PrintBuzzWhenDivisibleBy5(int outputIndex)
         {
             var sut = new FizzBuzzService();
 
@@ -64,7 +64,7 @@ namespace FizzBuzz.UnitTests
         
         [Theory]
         [InlineData(15)]
-        public void ShouldPrintFizzBuzzWhenMultipleOf3Or5(int outputIndex)
+        public void PrintFizzBuzzWhenMultipleOf3Or5(int outputIndex)
         {
             var sut = new FizzBuzzService();
 
