@@ -46,7 +46,7 @@ namespace GildedRose.UnitTests
             {
                 app.UpdateQuality();
             }
-            
+
             // ASSERT
             Assert.True(itemUnderTest.Quality >= 0);
         }
@@ -72,7 +72,7 @@ namespace GildedRose.UnitTests
             Assert.True(itemUnderTest.Quality > originalQuality);
             Assert.Equal(5, itemUnderTest.SellIn);
         }
-        
+
         [Fact]
         public void NoItemHasQualityHigherThan50()
         {
@@ -93,13 +93,14 @@ namespace GildedRose.UnitTests
             // ASSERT
             Assert.True(itemUnderTest.Quality <= 50);
         }
-        
+
         [Fact]
         public void SulfarusNeverHasToBeSoldOrDecreasesInQuality()
         {
-            var originalSellIn = 10;
-            var originalQuality = 5;
-            var itemUnderTest = new Item {Name = "Sulfuras", SellIn = originalSellIn, Quality = originalQuality};
+            var originalSellIn = 2;
+            var originalQuality = 2;
+            var itemUnderTest = new Item
+                {Name = "Sulfuras, Hand of Ragnaros", SellIn = originalSellIn, Quality = originalQuality};
 
             // ARRANGE
             IList<Item> Items = new List<Item> {itemUnderTest};
@@ -114,7 +115,27 @@ namespace GildedRose.UnitTests
 
             // ASSERT
             Assert.True(itemUnderTest.Quality >= originalQuality);
-            Assert.Equal(originalSellIn, itemUnderTest.SellIn);
+            Assert.True(itemUnderTest.SellIn >= 0);
+        }
+
+        [Fact]
+        public void BackstagePassesDecreasing()
+        {
+            var originalSellIn = 12;
+            var originalQuality = 0;
+            var itemUnderTest = new Item
+            {
+                Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = originalSellIn, Quality = originalQuality
+            };
+
+            // ARRANGE
+            IList<Item> Items = new List<Item> {itemUnderTest};
+
+            ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(Items);
+
+            // ACT & ASSERT
+            app.UpdateQuality();
+            Assert.Equal(1,itemUnderTest.Quality);
         }
     }
 }
