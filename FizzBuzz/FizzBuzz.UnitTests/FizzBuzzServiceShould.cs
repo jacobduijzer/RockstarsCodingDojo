@@ -28,5 +28,15 @@ namespace FizzBuzz.UnitTests
 
             Assert.Equal(100, output.Length);
         }
+
+        [InlineData(3)]
+        public void ShouldPrintFizzWhenDivisibleBy3(int outputIndex)
+        {
+            var sut = new FizzBuzzService();
+
+            var output = sut.PrintNumbers();
+            
+            Assert.Equal("Fizz", output[outputIndex]);
+        }
     }
 }
