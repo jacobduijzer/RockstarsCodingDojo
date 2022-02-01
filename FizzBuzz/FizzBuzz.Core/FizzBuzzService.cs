@@ -14,7 +14,7 @@ namespace FizzBuzz.Core
             if (CanDivideByThree(number) && CanDivideByFive(number)) return "FizzBuzz";
             if (CanDivideByThree(number)) return "Fizz";
             if (CanDivideByFive(number)) return "Buzz";
-            return "1";
+            return number.ToString();
         }
 
         private static bool IsNumberOutOfBounds(int number)
