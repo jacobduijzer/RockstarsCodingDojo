@@ -93,5 +93,28 @@ namespace GildedRose.UnitTests
             // ASSERT
             Assert.True(itemUnderTest.Quality <= 50);
         }
+        
+        [Fact]
+        public void SulfarusNeverHasToBeSoldOrDecreasesInQuality()
+        {
+            var originalSellIn = 10;
+            var originalQuality = 5;
+            var itemUnderTest = new Item {Name = "Sulfuras", SellIn = originalSellIn, Quality = originalQuality};
+
+            // ARRANGE
+            IList<Item> Items = new List<Item> {itemUnderTest};
+
+            ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(Items);
+
+            // ACT
+            for (int i = 0; i < 5; i++)
+            {
+                app.UpdateQuality();
+            }
+
+            // ASSERT
+            Assert.True(itemUnderTest.Quality >= originalQuality);
+            Assert.Equal(originalSellIn, itemUnderTest.SellIn);
+        }
     }
 }
