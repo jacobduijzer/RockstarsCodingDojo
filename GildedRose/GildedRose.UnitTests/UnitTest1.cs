@@ -9,15 +9,25 @@ namespace GildedRose.UnitTests
         [Fact]
         public void Foo()
         {
+            var originalQuality = 10;
+            var itemUnderTest = new Item {Name = "foo", SellIn = 1, Quality = originalQuality};
+            
             // ARRANGE
-            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
+            IList<Item> Items = new List<Item> {  itemUnderTest };
+            
             ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(Items);
 
             // ACT
             app.UpdateQuality();
 
+            var qualityDecreasedBeforeSellByDate = originalQuality - itemUnderTest.Quality;
+            var qualityAfterFirstRun = itemUnderTest.Quality;
+            
+            app.UpdateQuality();
+            var qualityDecreasedAfterSellByDate = qualityAfterFirstRun - itemUnderTest.Quality;
+
             // ASSERT
-            Assert.Equal("fixme", Items[0].Name);
+            Assert.Equal(qualityDecreasedBeforeSellByDate * 2, qualityDecreasedAfterSellByDate);
         }
     }
 }
