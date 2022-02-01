@@ -5,6 +5,7 @@ namespace GildedRose.ConsoleApp
 {
     public class GildedRose
     {
+        private const string SULFURAS = "Sulfuras, Hand of Ragnaros";
         IList<Item> Items;
 
         public GildedRose(IList<Item> Items)
@@ -20,14 +21,22 @@ namespace GildedRose.ConsoleApp
             }
         }
 
+        private static void UpdateQualityForSulfuras(Item item)
+        {
+            // VOID // NOP
+        }
+
         private static void UpdateQualityForItem(Item item)
         {
+            if (item.Name == SULFURAS)
+            {
+                UpdateQualityForSulfuras(item);
+                return;
+            }
+
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
-                if (item.Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    item.Quality = Math.Max(item.Quality - 1, 0);
-                }
+                item.Quality = Math.Max(item.Quality - 1, 0);
             }
             else
             {
@@ -48,10 +57,7 @@ namespace GildedRose.ConsoleApp
 
             }
 
-            if (item.Name != "Sulfuras, Hand of Ragnaros")
-            {
-                item.SellIn = item.SellIn - 1;
-            }
+            item.SellIn = item.SellIn - 1;
 
             if (item.SellIn < 0)
             {
@@ -59,10 +65,7 @@ namespace GildedRose.ConsoleApp
                 {
                     if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
                     {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            item.Quality = Math.Max(item.Quality - 1, 0);
-                        }
+                        item.Quality = Math.Max(item.Quality - 1, 0);
                     }
                     else
                     {
