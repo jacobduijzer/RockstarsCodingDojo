@@ -18,5 +18,15 @@ namespace FizzBuzz.UnitTests
             // ASSERT
             Assert.NotEmpty(output);
         }
+
+        [Fact]
+        public void ShouldHaveExpectedNumberOfElements()
+        {
+            var sut = new FizzBuzzService();
+
+            var output = sut.PrintNumbers();
+
+            Assert.Equal(100, output.Length);
+        }
     }
 }
