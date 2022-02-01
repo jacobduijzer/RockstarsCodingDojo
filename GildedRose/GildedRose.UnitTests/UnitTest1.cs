@@ -6,34 +6,28 @@ namespace GildedRose.UnitTests
 {
     public class UnitTest1
     {
-        [Fact]
-        public void UpdateQuality_NormalItem()
+        [Theory]
+        [InlineData(1, 1, 0, 0)]
+        [InlineData(0, 10, -1, 8)]
+        [InlineData(-1, 8, -2, 6)]
+        [InlineData(0, -1, 0, 0)]
+        public void UpdateQuality_AfterSellInTwice(int sellIn,
+                                                   int quality,
+                                                   int expectedSellIn,
+                                                   int expectedQuality)
         {
             // ARRANGE
-            IList<Item> items = new List<Item> { new Item { Name = "foo", SellIn = 1, Quality = 1 } };
+            IList<Item> items = new List<Item> { new Item { Name = "foo",
+                    SellIn = sellIn,
+                    Quality = quality } };
             ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(items);
 
             // ACT
             app.UpdateQuality();
 
             // ASSERT
-            Assert.Equal(0, items[0].SellIn);
-            Assert.Equal(0, items[0].Quality);
-        }
-
-        [Fact]
-        public void UpdateQuality_AfterSellIn()
-        {
-            // ARRANGE
-            IList<Item> items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 10 } };
-            ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(items);
-
-            // ACT
-            app.UpdateQuality();
-
-            // ASSERT
-            Assert.Equal(-1, items[0].SellIn);
-            Assert.Equal(8, items[0].Quality);
+            Assert.Equal(expectedSellIn, items[0].SellIn);
+            Assert.Equal(expectedQuality, items[0].Quality);
         }
     }
 }
