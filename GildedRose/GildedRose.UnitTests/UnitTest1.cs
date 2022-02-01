@@ -19,5 +19,21 @@ namespace GildedRose.UnitTests
             // ASSERT
             Assert.Equal("fixme", Items[0].Name);
         }
+
+        [Fact]
+        public void ItemQualityShouldDegradeBy1()
+        {
+            // ARRANGE
+            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 1, Quality = 1 } };
+            ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(Items);
+
+            // ACT
+            app.UpdateQuality();
+
+            // ASSERT
+            Assert.Equal(0, Items[0].Quality);
+            Assert.Equal(0, Items[0].SellIn);
+        }
+
     }
 }
