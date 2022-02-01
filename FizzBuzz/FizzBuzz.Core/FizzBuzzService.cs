@@ -4,6 +4,7 @@ namespace FizzBuzz.Core
     {
         public string FizzBuzz(int n)
         {
+            if (DivisibleBy(n, 15)) return "FizzBuzz";
             if (DivisibleBy(n, 3)) return "Fizz";
             if (DivisibleBy(n, 5)) return "Buzz";
             return "";
