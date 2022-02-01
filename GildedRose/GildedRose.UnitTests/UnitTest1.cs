@@ -15,6 +15,11 @@ namespace GildedRose.UnitTests
         [InlineData("Aged Brie", 1, 0, 0, 1)]
         [InlineData("Aged Brie", 0, 0, -1, 2)]
         [InlineData("Aged Brie", 0, 49, -1, 50)]
+        [InlineData("Sulfuras, Hand of Ragnaros", 0, 10, 0, 10)]
+        [InlineData("Backstage passes to a TAFKAL80ETC concert", 11, 10, 10, 11)]	
+        [InlineData("Backstage passes to a TAFKAL80ETC concert", 6, 10, 5, 12)]	
+        [InlineData("Backstage passes to a TAFKAL80ETC concert", 5, 10, 4, 13)]	
+        [InlineData("Backstage passes to a TAFKAL80ETC concert", 0, 10, -1, 0)]	
         public void UpdateQuality_AfterSellInTwice(string itemName,
                                                    int sellIn,
                                                    int quality,
