@@ -1,25 +1,22 @@
 ﻿using NUnit.Framework;
 using FluentAssertions;
 using FizzBuzz.Core;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FizzBuzz.UnitTests
 {
     [TestFixture]
     internal class FizzBuzzServiceTest
     {
+        private FizzBuzzService _service = new FizzBuzzService();
+
         [TestCase(3, "Fizz")]
         [TestCase(5, "Buzz")]
         [TestCase(15, "FizzBuzz")] // Divisible by 3 _and_ 5
+        [TestCase(13, "Fizz")]
         public void FizzBuzzTest(int input, string output)
         {
-            // Arrange
-            var service = new FizzBuzzService();
-
             // Act
-            var result = service.FizzBuzz(input);
+            var result = _service.FizzBuzz(input);
 
             // Assert
             result.Should().NotBeNull().And.Be(output);
@@ -28,11 +25,8 @@ namespace FizzBuzz.UnitTests
         [Test]
         public void  FizzBuzz_ReturnsTheNumber_ForOtherNumbers()
         {
-            // Arrange
-            var service = new FizzBuzzService(); // Duplicatation
-
             // Act
-            var result = service.FizzBuzz(7);
+            var result = _service.FizzBuzz(7);
 
             // Assert
             result.Should().Be("7");
