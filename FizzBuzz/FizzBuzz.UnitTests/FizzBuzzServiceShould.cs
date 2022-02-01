@@ -50,5 +50,16 @@ namespace FizzBuzz.UnitTests
             
             Assert.Equal("2", output[outputIndex]);
         }
+        
+        [Theory]
+        [InlineData(5)]
+        public void ShouldPrintBuzzWhenDivisibleBy5(int outputIndex)
+        {
+            var sut = new FizzBuzzService();
+
+            var output = sut.PrintNumbers();
+            
+            Assert.Equal("Buzz", output[outputIndex]);
+        }
     }
 }
