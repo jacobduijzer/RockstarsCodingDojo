@@ -108,7 +108,7 @@ namespace GildedRose.UnitTests
             ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(Items);
 
             // ACT
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 15; i++)
             {
                 app.UpdateQuality();
             }
@@ -118,11 +118,19 @@ namespace GildedRose.UnitTests
             Assert.True(itemUnderTest.SellIn >= 0);
         }
 
-        [Fact]
-        public void BackstagePassesDecreasing()
+        [Theory]
+        [InlineData(12, 0, 1)]
+        [InlineData(11, 0, 1)]
+        [InlineData(10, 0, 2)]
+        [InlineData(9, 0, 2)]
+        [InlineData(8, 0, 2)]
+        /*....*/
+        [InlineData(5, 0, 3)]
+        [InlineData(4, 0, 3)]
+        /*....*/
+        [InlineData(0, 10, 0)]
+        public void BackstagePassesDecreasing(int originalSellIn, int originalQuality, int expectedQuality)
         {
-            var originalSellIn = 12;
-            var originalQuality = 0;
             var itemUnderTest = new Item
             {
                 Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = originalSellIn, Quality = originalQuality
@@ -135,7 +143,27 @@ namespace GildedRose.UnitTests
 
             // ACT & ASSERT
             app.UpdateQuality();
-            Assert.Equal(1,itemUnderTest.Quality);
+            Assert.Equal(expectedQuality,itemUnderTest.Quality);
+        }
+        
+        [Theory]
+        [InlineData(12, 10, 8)]
+        [InlineData(3, 5, 3)]
+        public void ConjuredItemsDegradeTwiceAsFast(int originalSellIn, int originalQuality, int expectedQuality)
+        {
+            var itemUnderTest = new Item
+            {
+                Name = "Conjured", SellIn = originalSellIn, Quality = originalQuality
+            };
+
+            // ARRANGE
+            IList<Item> Items = new List<Item> {itemUnderTest};
+
+            ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(Items);
+
+            // ACT & ASSERT
+            app.UpdateQuality();
+            Assert.Equal(expectedQuality,itemUnderTest.Quality);
         }
     }
 }
