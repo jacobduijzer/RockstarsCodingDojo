@@ -4,6 +4,9 @@
     {
         public string GetFizzBuzzResultForInputNumber(int number)
         {
+            if (ShouldReturnFizzWhenDivisableBy3(number) && ShouldReturnBuzzWhenDivisableBy5(number))
+                return "FizzBuzz";
+
             if (ShouldReturnFizzWhenDivisableBy3(number))
                 return "Fizz";
 
