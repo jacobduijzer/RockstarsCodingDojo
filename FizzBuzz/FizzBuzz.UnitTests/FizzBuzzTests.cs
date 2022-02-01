@@ -86,5 +86,18 @@ namespace FizzBuzz.UnitTests
             // ASSERT
             Assert.Equal("Fizz", result);
         }
+        
+        [Fact]
+        public void ServiceReturnsBuzzWhenNumberContainsFive()
+        {
+            // ARRANGE
+            var service = new FizzBuzzService();
+
+            // ACT
+            var result = service.GetFizzBuzzForNumber(52);
+
+            // ASSERT
+            Assert.Equal("Buzz", result);
+        }
     }
 }
