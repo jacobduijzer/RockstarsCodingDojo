@@ -72,5 +72,16 @@ namespace FizzBuzz.UnitTests
             
             Assert.Equal("FizzBuzz", output[outputIndex]);
         }
+        
+        [Theory]
+        [InlineData(13)]
+        public void PrintFizzWhenNumberContains3(int outputIndex)
+        {
+            var sut = new FizzBuzzService();
+
+            var output = sut.PrintNumbers();
+            
+            Assert.Equal("Fizz", output[outputIndex]);
+        }
     }
 }
