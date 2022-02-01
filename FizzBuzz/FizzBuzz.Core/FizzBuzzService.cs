@@ -25,7 +25,7 @@ namespace FizzBuzz
 
         private bool IsFizz(int number)
         {
-            return number % 3 == 0;
+            return number % 3 == 0 || number.ToString().Contains("3");
         }
         
         private bool IsBuzz(int number)
