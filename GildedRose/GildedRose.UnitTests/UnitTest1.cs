@@ -34,6 +34,21 @@ namespace GildedRose.UnitTests
             Assert.Equal(0, Items[0].Quality);
             Assert.Equal(0, Items[0].SellIn);
         }
+        
+        [Fact]
+        public void ItemQualityShouldDegradeTwiceAsFastAfterSellByDate()
+        {
+            // ARRANGE
+            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 10 } };
+            ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(Items);
+
+            // ACT
+            app.UpdateQuality();
+
+            // ASSERT
+            Assert.Equal(8, Items[0].Quality);
+            Assert.Equal(-1, Items[0].SellIn);
+        }
 
     }
 }
