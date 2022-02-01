@@ -11,10 +11,16 @@ namespace FizzBuzz
         {
             return Enumerable.Range(0, 100).Select(x =>
             {
+                if (IsFizzBuzz(x)) return "FizzBuzz";
                 if (IsFizz(x)) return "Fizz";
                 if (IsBuzz(x)) return "Buzz";
                 return x.ToString();
             }).ToArray();
+        }
+
+        private bool IsFizzBuzz(int number)
+        {
+            return IsFizz(number) && IsBuzz(number);
         }
 
         private bool IsFizz(int number)
