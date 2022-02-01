@@ -29,8 +29,19 @@ namespace FizzBuzz.UnitTests
 
             // ASSERT
             Assert.Equal("Fizz", result);
-
         }
+        
+        [Fact]
+        public void ServiceReturnsBuzz()
+        {
+            // ARRANGE
+            var service = new FizzBuzzService();
 
+            // ACT
+            var result = service.GetFizzBuzzForNumber(5);
+
+            // ASSERT
+            Assert.Equal("Buzz", result);
+        }
     }
 }
