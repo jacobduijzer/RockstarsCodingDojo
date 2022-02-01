@@ -42,5 +42,17 @@ namespace FizzBuzz.UnitTests
             Assert.Equal(expected, result);
         }
 
+
+        [Theory]
+        [InlineData(15, "FizzBuzz")]
+        [InlineData(30, "FizzBuzz")]
+        public void GivenANumber_WhenDivisibleBy3And5_ReturnsFizzBuzz(int number, string expected)
+        {
+            var unitUnderTest = new FizzBuzzGame();
+
+            string result = unitUnderTest.GetFizzBuzzResultForInputNumber(number);
+
+            Assert.Equal(expected, result);
+        }
     }
 }
