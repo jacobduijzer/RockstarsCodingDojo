@@ -10,30 +10,19 @@ namespace FizzBuzz.UnitTests
     [TestFixture]
     internal class FizzBuzzServiceTest
     {
-        [Test]
-        public void ThreeShouldReturnFizz()
+        [TestCase(3, "Fizz")]
+        [TestCase(5, "Buzz")]
+        [TestCase(15, "FizzBuzz")]
+        public void FizzBuzzTest(int input, string output)
         {
             // Arrange
             var service = new FizzBuzzService();
 
             // Act
-            var result = service.FizzBuzz(3);
+            var result = service.FizzBuzz(input);
 
             // Assert
-            result.Should().NotBeNull().And.Be("Fizz");
-        }
-
-        [Test]
-        public void FiveShouldReturnBuzz()
-        {
-            // Arrange
-            var service = new FizzBuzzService();
-
-            // Act
-            var result = service.FizzBuzz(5);
-
-            // Assert
-            result.Should().NotBeNull().And.Be("Buzz");
+            result.Should().NotBeNull().And.Be(output);
         }
     }
 }
