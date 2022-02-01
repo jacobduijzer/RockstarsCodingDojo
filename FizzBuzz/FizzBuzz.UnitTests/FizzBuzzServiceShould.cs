@@ -1,3 +1,5 @@
+using System;
+using System.Text;
 using Xunit;
 
 namespace FizzBuzz.UnitTests
@@ -11,9 +13,10 @@ namespace FizzBuzz.UnitTests
             var sut = new FizzBuzzService();
             
             //ACT
-            sut.PrintNumbers();
+            string[] output = sut.PrintNumbers();
 
             // ASSERT
+            Assert.NotEmpty(output);
         }
     }
 }
