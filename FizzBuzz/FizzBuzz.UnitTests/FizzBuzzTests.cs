@@ -1,10 +1,9 @@
 ﻿using FizzBuzz.Core;
 using Xunit;
-using Xunit.Sdk;
 
 namespace FizzBuzz.UnitTests
 {
-    public class FizzBuzzTests : TestClass
+    public class FizzBuzzTests
     {
         [Fact]
         public void ServiceReturnsNumberOne()
@@ -17,8 +16,21 @@ namespace FizzBuzz.UnitTests
 
             // ASSERT
             Assert.Equal("1",result);
-
         } 
-        
+
+        [Fact]
+        public void ServiceReturnsFizz()
+        {
+            // ARRANGE
+            var service = new FizzBuzzService();
+
+            // ACT
+            var result = service.GetFizzBuzzForNumber(3);
+
+            // ASSERT
+            Assert.Equal("Fizz", result);
+
+        }
+
     }
 }

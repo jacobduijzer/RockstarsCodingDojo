@@ -4,9 +4,10 @@ namespace FizzBuzz.Core
 {
     public class FizzBuzzService
     {
-        public IEnumerable<char> GetFizzBuzzForNumber(int i)
+        public string GetFizzBuzzForNumber(int i)
         {
-            throw new System.NotImplementedException();
+            return "1";
         }
+
     }
 }
