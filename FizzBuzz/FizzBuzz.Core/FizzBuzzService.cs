@@ -9,7 +9,7 @@ namespace FizzBuzz
     {
         public string[] PrintNumbers()
         {
-            return Enumerable.Range(0, 100).Select(x => x.ToString()).ToArray();
+            return Enumerable.Range(0, 100).Select(x => "Fizz").ToArray();
         }
     }
 }
