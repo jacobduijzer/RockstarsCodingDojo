@@ -9,7 +9,12 @@ namespace FizzBuzz
     {
         public string[] PrintNumbers()
         {
-            return Enumerable.Range(0, 100).Select(x => "Fizz").ToArray();
+            return Enumerable.Range(0, 100).Select(x => IsFizz(x) ? "Fizz" : x.ToString()).ToArray();
+        }
+
+        private bool IsFizz(int number)
+        {
+            return number % 3 == 0;
         }
     }
 }
