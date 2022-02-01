@@ -73,5 +73,18 @@ namespace FizzBuzz.UnitTests
             // ACT & ASSERT
             Assert.Throws<ArgumentOutOfRangeException>(() => service.GetFizzBuzzForNumber(number));
         }
+
+        [Fact]
+        public void ServiceReturnsFizzWhenNumberContainsThree()
+        {
+            // ARRANGE
+            var service = new FizzBuzzService();
+
+            // ACT
+            var result = service.GetFizzBuzzForNumber(13);
+
+            // ASSERT
+            Assert.Equal("Fizz", result);
+        }
     }
 }
