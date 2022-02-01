@@ -6,17 +6,21 @@ namespace FizzBuzz.UnitTests
 {
     public class FizzBuzzTests
     {
-        [Fact]
-        public void ServiceReturnsNumberOne()
+        [Theory]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(7)]
+        [InlineData(8)]
+        public void ServiceReturnsValidNumber(int number)
         {
             // ARRANGE
             var service = new FizzBuzzService();
             
             // ACT
-            var result = service.GetFizzBuzzForNumber(1);
+            var result = service.GetFizzBuzzForNumber(number);
 
             // ASSERT
-            Assert.Equal("1",result);
+            Assert.Equal(number.ToString(),result);
         } 
 
         [Fact]

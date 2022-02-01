@@ -7,7 +7,7 @@ namespace FizzBuzz.Core
     {
         public string GetFizzBuzzForNumber(int number)
         {
-            if(number > 100)
+            if(IsNumberOutOfBounds(number))
             {
                 throw new ArgumentOutOfRangeException(nameof(number));
             }
@@ -15,6 +15,11 @@ namespace FizzBuzz.Core
             if (CanDivideByThree(number)) return "Fizz";
             if (CanDivideByFive(number)) return "Buzz";
             return "1";
+        }
+
+        private static bool IsNumberOutOfBounds(int number)
+        {
+            return number < 1 || number > 100;
         }
 
         private static bool CanDivideByThree(int number)
