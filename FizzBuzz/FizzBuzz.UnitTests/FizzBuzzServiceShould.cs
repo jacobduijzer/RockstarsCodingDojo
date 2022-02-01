@@ -83,5 +83,17 @@ namespace FizzBuzz.UnitTests
             
             Assert.Equal("Fizz", output[outputIndex]);
         }
+        
+        
+        [Theory]
+        [InlineData(51)]
+        public void PrintFizzWhenNumberContains5(int outputIndex)
+        {
+            var sut = new FizzBuzzService();
+
+            var output = sut.PrintNumbers();
+            
+            Assert.Equal("Buzz", output[outputIndex]);
+        }
     }
 }
