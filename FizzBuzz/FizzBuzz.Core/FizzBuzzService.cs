@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace FizzBuzz.Core
 {
@@ -7,12 +8,19 @@ namespace FizzBuzz.Core
         public string GetFizzBuzzForNumber(int number)
         {
             if (CanDivideByThree(number)) return "Fizz";
+            if (CanDivideByFive(number)) return "Buzz";
+
             return "1";
         }
 
         private static bool CanDivideByThree(int number)
         {
             return number % 3 == 0;
+        }
+        
+        private bool CanDivideByFive(int number)
+        {
+            return number % 5 == 0;
         }
     }
 }
