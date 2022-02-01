@@ -50,5 +50,20 @@ namespace GildedRose.UnitTests
             Assert.Equal(-1, Items[0].SellIn);
         }
 
+        [Fact]
+        public void ItemQualityShouldNeverLessThan0()
+        {
+            // ARRANGE
+            IList<Item> Items = new List<Item> { new Item { Name = "foo", SellIn = 10, Quality = 0 } };
+            ConsoleApp.GildedRose app = new ConsoleApp.GildedRose(Items);
+
+            // ACT
+            app.UpdateQuality();
+
+            // ASSERT
+            Assert.Equal(0, Items[0].Quality);
+            Assert.Equal(9, Items[0].SellIn);
+        }
+
     }
 }
