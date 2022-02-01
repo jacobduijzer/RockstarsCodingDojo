@@ -67,5 +67,19 @@ namespace FizzBuzz.UnitTests
 
             Assert.Equal(expected, result);
         }
+
+
+        [Theory]
+        [InlineData(5, "Buzz")]
+        [InlineData(25, "Buzz")]
+        [InlineData(45, "Buzz")]
+        public void GivenANumber_WhenNumberContainsA6_ReturnsFizz(int number, string expected)
+        {
+            var unitUnderTest = new FizzBuzzGame();
+
+            string result = unitUnderTest.GetFizzBuzzResultForInputNumber(number);
+
+            Assert.Equal(expected, result);
+        }
     }
 }
