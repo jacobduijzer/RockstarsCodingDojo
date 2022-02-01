@@ -9,17 +9,14 @@ namespace FizzBuzz.UnitTests
     {
         private FizzBuzzService _service = new FizzBuzzService();
 
-        [TestCase(3, "Fizz")]
-        [TestCase(5, "Buzz")]
-        [TestCase(15, "FizzBuzz")] // Divisible by 3 _and_ 5
-        [TestCase(13, "Fizz")]
-        public void FizzBuzzTest(int input, string output)
+        [TestCase(3, ExpectedResult="Fizz", Description="Divide by three returns Fizz")]
+        [TestCase(5, ExpectedResult="Buzz", Description="Divide by five returns Buzz")]
+        [TestCase(15, ExpectedResult="FizzBuzz",
+          Description="Divide by three and five returns FizzBuzz")]
+        [TestCase(13, ExpectedResult="Fizz", Description="Number contains 3 returns Fizz")]
+        public string FizzBuzzTest(int input)
         {
-            // Act
-            var result = _service.FizzBuzz(input);
-
-            // Assert
-            result.Should().NotBeNull().And.Be(output);
+            return _service.FizzBuzz(input);
         }
 
         [Test]
