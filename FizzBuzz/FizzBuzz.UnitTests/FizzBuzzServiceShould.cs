@@ -61,5 +61,16 @@ namespace FizzBuzz.UnitTests
             
             Assert.Equal("Buzz", output[outputIndex]);
         }
+        
+        [Theory]
+        [InlineData(15)]
+        public void ShouldPrintFizzBuzzWhenMultipleOf3Or5(int outputIndex)
+        {
+            var sut = new FizzBuzzService();
+
+            var output = sut.PrintNumbers();
+            
+            Assert.Equal("FizzBuzz", output[outputIndex]);
+        }
     }
 }
