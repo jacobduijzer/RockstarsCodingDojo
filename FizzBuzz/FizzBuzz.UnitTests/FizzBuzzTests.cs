@@ -1,4 +1,5 @@
-﻿using FizzBuzz.Core;
+﻿using System;
+using FizzBuzz.Core;
 using Xunit;
 
 namespace FizzBuzz.UnitTests
@@ -55,6 +56,16 @@ namespace FizzBuzz.UnitTests
 
             // ASSERT
             Assert.Equal("FizzBuzz", result);
+        }
+        
+        [Fact]
+        public void ServiceThrowsArgumentOutOfRangeException()
+        {
+            // ARRANGE
+            var service = new FizzBuzzService();
+
+            // ACT & ASSERT
+            Assert.Throws<ArgumentOutOfRangeException>(() => service.GetFizzBuzzForNumber(101));
         }
     }
 }
