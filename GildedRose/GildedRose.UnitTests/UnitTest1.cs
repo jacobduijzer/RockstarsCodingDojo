@@ -53,7 +53,7 @@ namespace GildedRose.UnitTests
 
         [Theory]
         [InlineData(10, 0, 1)]
-        [InlineData(0, 10, 11)]
+        [InlineData(0, 10, 12)]
         public void AgedBrieQualityIncreasesTheOlderItGets(int sellIn, int initialQuality, int expectedQuality)
         {
             // ARRANGE
