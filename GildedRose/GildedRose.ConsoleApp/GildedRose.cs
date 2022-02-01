@@ -18,69 +18,87 @@ namespace GildedRose.ConsoleApp
                 var item = Items[i];
                 if (IsRegularItem(item))
                 {
-                    if (Items[i].Quality > 0)
-                    {
-                        if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                        {
-                            Items[i].Quality = Items[i].Quality - 1;
-                        }
-                    }
+                    HandleRegularItem(item);
                 }
                 else
                 {
                     if (Items[i].Quality < 50)
                     {
-                        Items[i].Quality = Items[i].Quality + 1;
+                        item.Quality++;
+                        HandleBackstagePass(item);
 
-                        if (Items[i].Name == "Backstage passes to a TAFKAL80ETC concert")
-                        {
-                            HandleBackstagePass(item);
-                        }
                     }
                 }
 
-                DecreaseNonLegendaryItemsSellIn(item);
+                DecreaseItemsSellIn(item);
+                HandleNegativeSellIn(item);
+            }
+        }
 
-                if (Items[i].SellIn < 0)
+      
+
+        private void HandleRegularItem(Item item)
+        {
+            if (item.Quality > 0 && !IsLegendaryItem(item))
+            {
+                item.Quality--;
+            }
+        }
+
+        private void HandleNegativeSellIn(Item item)
+        {
+            if (item.SellIn < 0)
+            {
+                if (item.Name != "Aged Brie")
                 {
-                    if (Items[i].Name != "Aged Brie")
+                    if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
                     {
-                        if (Items[i].Name != "Backstage passes to a TAFKAL80ETC concert")
+                        if (item.Quality > 0)
                         {
-                            if (Items[i].Quality > 0)
+                            if (item.Name != "Sulfuras, Hand of Ragnaros")
                             {
-                                if (Items[i].Name != "Sulfuras, Hand of Ragnaros")
-                                {
-                                    Items[i].Quality = Items[i].Quality - 1;
-                                }
+                                item.Quality--;
                             }
-                        }
-                        else
-                        {
-                            Items[i].Quality = Items[i].Quality - Items[i].Quality;
                         }
                     }
                     else
                     {
-                        if (Items[i].Quality < 50)
-                        {
-                            Items[i].Quality = Items[i].Quality + 1;
-                        }
+                        item.Quality = item.Quality - item.Quality;
                     }
+                }
+                else
+                {
+                    HandleAgedBrie(item);
                 }
             }
         }
 
-        private void DecreaseNonLegendaryItemsSellIn(Item item)
+        private void HandleAgedBrie(Item item)
         {
-            if (item.Name != "Sulfuras, Hand of Ragnaros")
+            if (item.Quality < 50)
+            {
+                item.Quality = item.Quality + 1;
+            }
+        }
+
+        private void DecreaseItemsSellIn(Item item)
+        {
+            if (!IsLegendaryItem(item))
             {
                 item.SellIn = item.SellIn - 1;
             }
         }
 
+        private static bool IsLegendaryItem(Item item)
+        {
+            return item.Name == "Sulfuras, Hand of Ragnaros";
+        }
+
         private void HandleBackstagePass(Item item)
         {
+            if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                return;
+
             if (item.SellIn < 11)
             {
                 if (item.Quality < 50)
